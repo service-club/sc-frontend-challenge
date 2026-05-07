@@ -10,18 +10,18 @@ export function GrandmastersListPage() {
   const { status, data, error, refetch } = useGrandmasters()
   const [query, setQuery] = useState('')
 
-  // TODO (candidate): Use a debounced value for filtering (e.g. 250–400ms).
-  // Hints:
-  // - Prefer debouncing the query, not the render.
-  // - Avoid stale values and make sure timeouts are cleaned up.
+  // Debounced input (the hook implementation is part of the exercise).
   const debouncedQuery = useDebouncedValue(query, 300)
 
   const filtered = useMemo(() => {
     const list = data ?? []
-    const q = debouncedQuery.trim().toLowerCase()
+    // TODO_WIRE_DEBOUNCE:
+    // Change exactly 1 line: use `debouncedQuery` instead of `query`.
+    const q = query.trim().toLowerCase()
+    void debouncedQuery // remove after wiring
     if (!q) return list
     return list.filter((u) => u.toLowerCase().includes(q))
-  }, [data, debouncedQuery])
+  }, [data, debouncedQuery, query])
 
   return (
     <div className="space-y-6">

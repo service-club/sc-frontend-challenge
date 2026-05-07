@@ -7,6 +7,8 @@ type LoadState<T> =
   | { status: 'success'; data: T; error?: undefined }
 
 export function useGrandmasters() {
+  // Note: fetching is pre-wired to keep the live coding session fast.
+  // If you want extra signal, ask the candidate to improve cancellation/caching.
   const [state, setState] = useState<LoadState<string[]>>({ status: 'loading' })
   const abortRef = useRef<AbortController | null>(null)
 

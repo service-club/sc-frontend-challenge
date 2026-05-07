@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ErrorState } from '../components/ErrorState'
 import { Spinner } from '../components/Spinner'
@@ -14,23 +14,16 @@ export function GrandmasterProfilePage() {
     return data.last_online * 1000
   }, [data?.last_online])
 
-  // TODO (candidate): Build a ticking clock that updates every second and shows
+  // TODO_CLOCK:
+  // Build a ticking clock that updates every second and shows
   // time since last_online as HH:MM:SS.
   //
-  // Requirements:
-  // - It must update every second
-  // - Clean up the interval on unmount (and when lastOnline changes)
-  // - Derive elapsed from Date.now() (avoid drift from incrementing a counter)
-  const [nowMs, setNowMs] = useState(() => Date.now())
-  useEffect(() => {
-    const id = window.setInterval(() => setNowMs(Date.now()), 1000)
-    return () => window.clearInterval(id)
-  }, [])
-
-  const elapsedSeconds = useMemo(() => {
-    if (!lastOnlineMs) return null
-    return Math.max(0, Math.floor((nowMs - lastOnlineMs) / 1000))
-  }, [lastOnlineMs, nowMs])
+  // Do this:
+  // - Update imports to include `useEffect` + `useState`
+  // - Add `nowMs` state and a 1s interval with cleanup
+  // - Compute `elapsedSeconds` from Date.now() (no drift)
+  void lastOnlineMs
+  const elapsedSeconds: number | null = null
 
   return (
     <div className="space-y-6">
@@ -105,10 +98,10 @@ export function GrandmasterProfilePage() {
           <aside className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <div className="text-sm font-medium">Last online</div>
             <div className="mt-2 font-mono text-2xl tracking-tight">
-              {elapsedSeconds == null ? '—' : formatDuration(elapsedSeconds)}
+              {elapsedSeconds == null ? 'TODO' : formatDuration(elapsedSeconds)}
             </div>
             <div className="mt-2 text-xs text-white/50">
-              {data.last_online ? 'Updates every second' : 'No last_online data'}
+              {data.last_online ? 'Implement ticking clock' : 'No last_online data'}
             </div>
           </aside>
 
