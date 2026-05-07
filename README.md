@@ -35,6 +35,14 @@ Everything is scaffolded so you can focus on a few core tasks.
 
 If you finish early, ask for one bonus improvement.
 
+### Bonus (React re-render / stale state demo)
+Open `src/pages/GrandmastersListPage.tsx` and find `TODO_RERENDER_FIX`.
+
+- You will see a small counter. It is intentionally written in a way that can break when multiple updates happen in the same tick.
+- Explain why the functional updater form is safer, then fix it:
+  - From: `setCount(count + 1)`
+  - To: `setCount...`
+
 ### Steps (super short)
 1. Open `src/pages/GrandmastersListPage.tsx` and find `TODO_WIRE_DEBOUNCE` (read what’s missing).
 

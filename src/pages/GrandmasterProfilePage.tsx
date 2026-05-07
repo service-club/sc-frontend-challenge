@@ -18,10 +18,28 @@ export function GrandmasterProfilePage() {
   // Build a ticking clock that updates every second and shows
   // time since last_online as HH:MM:SS.
   //
-  // Do this:
-  // - Update imports to include `useEffect` + `useState`
-  // - Add `nowMs` state and a 1s interval with cleanup
-  // - Compute `elapsedSeconds` from Date.now() (no drift)
+  // Replace the placeholder code below by following these exact steps:
+  //
+  // 1) Update the import on line 1 to:
+  //    import { useEffect, useMemo, useState } from 'react'
+  //
+  // 2) Replace `void lastOnlineMs` + `elapsedSeconds` with:
+  //
+  //    const [nowMs, setNowMs] = useState(() => Date.now())
+  //
+  //    useEffect(() => {
+  //      const id = window.setInterval(() => setNowMs(Date.now()), 1000)
+  //      return () => window.clearInterval(id)
+  //    }, [])
+  //
+  //    const elapsedSeconds = useMemo(() => {
+  //      if (lastOnlineMs == null) return null
+  //      return Math.max(0, Math.floor((nowMs - lastOnlineMs) / 1000))
+  //    }, [lastOnlineMs, nowMs])
+  //
+  // Notes:
+  // - Derive elapsed from Date.now() (avoid drift).
+  // - The UI already renders `formatDuration(elapsedSeconds)` for you.
   void lastOnlineMs
   const elapsedSeconds: number | null = null
 
