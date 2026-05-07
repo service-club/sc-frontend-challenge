@@ -36,7 +36,13 @@ Everything is scaffolded so you can focus on a few core tasks.
 If you finish early, ask for one bonus improvement.
 
 ### Steps (super short)
-1) Open `src/pages/GrandmastersListPage.tsx` and find `TODO_WIRE_DEBOUNCE` (read what’s missing).\n\n2) Open `src/hooks/useDebouncedValue.ts`, go to `TODO_DEBOUNCE`, complete it, and explain your implementation.\n\n3) Go back to `src/pages/GrandmastersListPage.tsx`, complete `TODO_WIRE_DEBOUNCE` (change exactly one line), and explain why.\n\n4) Open `src/pages/GrandmasterProfilePage.tsx`, go to `TODO_CLOCK`, complete it, and explain interval cleanup and drift avoidance.
+1. Open `src/pages/GrandmastersListPage.tsx` and find `TODO_WIRE_DEBOUNCE` (read what’s missing).
+
+2. Open `src/hooks/useDebouncedValue.ts`, go to `TODO_DEBOUNCE`, complete it, and explain your implementation.
+
+3. Go back to `src/pages/GrandmastersListPage.tsx`, complete `TODO_WIRE_DEBOUNCE` (change exactly one line), and explain why.
+
+4. Open `src/pages/GrandmasterProfilePage.tsx`, go to `TODO_CLOCK`, complete it, and explain interval cleanup and drift avoidance.
 
 ## The tasks (functional requirements)
 
